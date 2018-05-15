@@ -12,3 +12,11 @@ datagroup: the_met_default_datagroup {
 }
 
 persist_with: the_met_default_datagroup
+
+explore: images {
+  join: objects {
+    type: left_outer
+    sql_on: ${images.object_id} = ${objects.object_id} ;;
+    relationship: many_to_one
+  }
+}

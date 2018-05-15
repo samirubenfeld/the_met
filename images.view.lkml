@@ -22,9 +22,20 @@ view: images {
     sql: ${TABLE}.object_id ;;
   }
 
+
+
   dimension: original_image_url {
     type: string
     sql: ${TABLE}.original_image_url ;;
+    link: {
+      label: "Image"
+      url: "{{ value }}"
+    }
+  }
+
+  dimension: url_image {
+    sql: ${original_image_url}image};;
+    html: <img src="{{ value }}" width="100" height="100"/>;;
   }
 
   dimension: public_caption {
